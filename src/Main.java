@@ -8,7 +8,6 @@ public class Main {
         System.out.println("3 - CIB Bank");
         System.out.println("4 - QNB Bank");
         System.out.println("5 - Exit");
-        System.out.println("\n");
     }
 
     public static void sideMenu() {
@@ -17,7 +16,6 @@ public class Main {
         System.out.println("2 - Deposit");
         System.out.println("3 - Show Balance");
         System.out.println("4 - Back To Main");
-        System.out.println("\n");
     }
 
     public static void main(String[] args) {
@@ -36,16 +34,16 @@ public class Main {
                 option = input.nextInt();
                 switch (option) {
                     case 1:
-                        bank = new BanqueMisr();
+                        //bank = new BanqueMisr();
                         break;
                     case 2:
-                        bank = new BanqueAlahly();
+                        bank = new NBE(1000);
                         break;
                     case 3:
-                        bank = new CIB();
+                        //bank = new CIB();
                         break;
                     case 4:
-                        bank = new QNB();
+                       //bank = new QNB();
                         break;
                     case 5:
                         menu = false;
@@ -68,12 +66,22 @@ public class Main {
                     if(operation == 1){
                         System.out.println("Enter the amount : ");
                         amount = input.nextDouble();
-                        bank.withDraw(amount);
+                        if(amount <= 0) {
+                            System.out.println("You must enter positive number\n PLEASE TRY AGAIN");
+                        }
+                        else {
+                            bank.withDraw(amount);
+                        }
                     }
                     else if(operation == 2){
                         System.out.println("Enter the amount : ");
                         amount = input.nextDouble();
-                        bank.deposit(amount);
+                        if(amount <= 0) {
+                            System.out.println("You must enter positive number\n PLEASE TRY AGAIN");
+                        }
+                        else {
+                            bank.deposit(amount);
+                        }
                     }
                     else if (operation == 3){
                         System.out.println("Your balance is : "+bank.showBalance()+" EGP");

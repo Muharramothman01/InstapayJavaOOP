@@ -14,25 +14,25 @@ public class NBE implements BankAccount {
     @Override
     public void withDraw(double amount) {
         if (amount > MAX_WITHDRAWAL) {
-            System.err.printf("Cannot withdraw more than %f in one transaction.%n", MAX_WITHDRAWAL);
+            System.err.printf("Cannot withdraw more than %.2f in one transaction.%n", MAX_WITHDRAWAL);
         }
 
         if (amount > balance) {
-            System.err.printf("Not enough balance");
+            System.err.println("Not enough balance");
         }
 
         balance -= amount;
-        System.out.printf("Withdrew %f%nCurrent balance: %f%n", amount, balance);
+        System.out.printf("Withdrew %.2f%nCurrent balance: %.2f%n", amount, balance);
     }
 
     @Override
     public void deposit(double amount) {
         if (amount > MAX_DEPOSIT) {
-            System.err.printf("Cannot deposit more than %f in one transaction.%n", MAX_DEPOSIT);
+            System.err.printf("Cannot deposit more than %.2f in one transaction.%n", MAX_DEPOSIT);
         }
 
         balance += amount;
-        System.out.printf("Deposited %f%nCurrent balance: %f%n", amount, balance);
+        System.out.printf("Deposited %.2f%nCurrent balance: %.2f%n", amount, balance);
     }
 
     @Override
