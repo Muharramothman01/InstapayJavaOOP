@@ -8,6 +8,7 @@ public class Main {
         System.out.println("3 - CIB Bank");
         System.out.println("4 - QNB Bank");
         System.out.println("5 - Exit");
+        System.out.println("\n");
     }
 
     public static void sideMenu() {
@@ -16,6 +17,7 @@ public class Main {
         System.out.println("2 - Deposit");
         System.out.println("3 - Show Balance");
         System.out.println("4 - Back To Main");
+        System.out.println("\n");
     }
 
     public static void main(String[] args) {
@@ -25,12 +27,13 @@ public class Main {
         String password = input.nextLine();
         int option;
         int operation;
+        double amount;
         BankAccount bank = null;
         boolean menu = true;
         if(password.equals(BankAccount.password)){
             while (menu){
-                option = input.nextInt();
                 mainMenu();
+                option = input.nextInt();
                 switch (option) {
                     case 1:
                         bank = new BanqueMisr();
@@ -60,33 +63,36 @@ public class Main {
 
                 boolean repeat = true;
                 while (repeat) {
+                    sideMenu();
                     operation = input.nextInt();
-                    switch (operation) {
-                        case 1:
-                            bank.withDraw();
-                            break;
-                        case 2:
-                            bank.deposit();
-                            break;
-                        case 3:
-                            bank.showBalance();
-                            break;
-                        case 4:
-                            System.out.println("Back to Main Menu");
-                            repeat = false;
-                            break;
-                        default:
-                            System.out.println("Invalid Choice\n");
-                            System.out.println("===================================\n");
-                            break;
+                    if(operation == 1){
+                        System.out.println("Enter the amount : ");
+                        amount = input.nextDouble();
+                        bank.withDraw(amount);
+                    }
+                    else if(operation == 2){
+                        System.out.println("Enter the amount : ");
+                        amount = input.nextDouble();
+                        bank.deposit(amount);
+                    }
+                    else if (operation == 3){
+                        System.out.println("Your balance is : "+bank.showBalance()+" EGP");
+                    }
+                    else if(operation == 4){
+                        repeat = false;
+                    }
+                    else {
+                        System.out.println("Invalid Choice\n");
+                        System.out.println("===================================\n");
+                    }
                 }
             }
 
 
 
-            }
-
-
         }
+
+
     }
 }
+
