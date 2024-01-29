@@ -2,7 +2,7 @@ package org.example;
 
 import java.time.LocalDateTime;
 
-public class CIB implements BankAccount{
+public class CIB extends Bank{
 
     private double balance;
     private final String bankName = "CIB";
@@ -42,10 +42,20 @@ public class CIB implements BankAccount{
     }
 
     @Override
+    public double getWithdrawLimit() {
+        return 0;
+    }
+
+    @Override
     public void deposit(double amount) {
         balance+=amount;
         System.out.println("you deposit " + amount + " successfully ");
         System.out.println("THANK YOU FOR USING IT ");
+    }
+
+    @Override
+    public double getDepositLimit() {
+        return 0;
     }
 
     @Override
