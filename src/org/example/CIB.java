@@ -37,7 +37,7 @@ public class CIB extends Bank {
 
     @Override
     public double getWithdrawLimit() {
-        return 0;
+        return 7000;
     }
 
     @Override
@@ -49,7 +49,7 @@ public class CIB extends Bank {
 
     @Override
     public double getDepositLimit() {
-        return 0;
+        return 25000;
     }
 
     @Override
