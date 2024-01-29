@@ -1,56 +1,49 @@
 package org.example;
 
-public class NBE extends Bank {
-    private double balance;
-    public static final double MAX_WITHDRAWAL = 8000;
-    public static final double MAX_DEPOSIT = 15000;
-
-    private final String bankName = "NBE";
-
-    public NBE() {
-
-    }
-
-    public NBE(double initialBalance) {
-        balance = initialBalance;
+public class BanqueMisr extends Bank {
+    public BanqueMisr(double balance){
+        super("BM", balance);
     }
     @Override
     public String getBankName() {
-        return bankName;
+        return getName();
     }
 
     @Override
     public void withDraw(double amount) {
-        if (amount > MAX_WITHDRAWAL) {
-            System.err.printf("Cannot withdraw more than %f in one transaction.%n", MAX_WITHDRAWAL);
+        System.out.print("Enter the amount to withdraw: ");
+        if (amount <= 5000){
+            System.out.println("Invalid amount \n TRY AGAIN!!");
+        } else {
+            if (amount <= balance ) {
+                balance -= amount;
+                System.out.println(" Amount withdrawal: " + amount + "\n Balance after withdrawal: " + balance);
+            } else {
+                System.out.println("Your balance is less than " + amount + "\t Transaction failed...!!" );
+            }
         }
-
-        if (amount > balance) {
-            System.err.printf("Not enough balance");
-        }
-
-        balance -= amount;
-        System.out.printf("Withdrew %f%nCurrent balance: %f%n", amount, balance);
     }
 
     @Override
     public double getWithdrawLimit() {
-        return 0;
+        return 5000;
     }
-
     @Override
     public void deposit(double amount) {
-        if (amount > MAX_DEPOSIT) {
-            System.err.printf("Cannot deposit more than %f in one transaction.%n", MAX_DEPOSIT);
-        }
+        System.out.println("Note: you should know that max deposit is 8000 LE and min is 200. \n Enter the amount to deposit: ");
+        if (amount <= 8000) {
+            balance += amount;
+            System.out.println(" Amount Deposit: " + amount + "\n Balance after withdrawal: " + balance);
 
-        balance += amount;
-        System.out.printf("Deposited %f%nCurrent balance: %f%n", amount, balance);
+        } else {
+            System.out.println(" Deposit Transaction Failed!");
+        }
     }
+
 
     @Override
     public double getDepositLimit() {
-        return 0;
+        return 8000;
     }
 
     @Override
