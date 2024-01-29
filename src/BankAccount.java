@@ -1,6 +1,10 @@
+package org.example;
+
 public interface BankAccount {
-    String password = "1234";
+    String getBankName();
     void withDraw(double amount);
     void deposit(double amount);
     double showBalance();
+    void exchangeMoney(double amount, String currency);
+
 }
