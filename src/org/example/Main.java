@@ -79,12 +79,14 @@ public class Main {
                     operation = input.nextInt();
 
                     if (operation == 1) {
+                        System.out.println("Your maximum withdraw is " + bank.getWithdrawLimit());
                         System.out.println("Enter the amount : ");
                         amount = input.nextDouble();
                         bank.withDraw(amount);
                     }
 
                     else if (operation == 2) {
+                        System.out.println("Your maximum deposit is " + bank.getDepositLimit());
                         System.out.println("Enter the amount : ");
                         amount = input.nextDouble();
                         bank.deposit(amount);
