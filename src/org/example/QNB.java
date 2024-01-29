@@ -27,7 +27,7 @@ public class QNB extends Bank {
 
     @Override
     public double getWithdrawLimit() {
-        return 0;
+        return 6000;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class QNB extends Bank {
 
     @Override
     public double getDepositLimit() {
-        return 0;
+        return 20000;
     }
 
     @Override
