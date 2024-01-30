@@ -12,13 +12,11 @@ public class QNB extends Bank {
 
     @Override
     public void withDraw(double amount) {
-        if (amount==0) {
-        System.out.println("Invaild transaction");
-        } else if (amount > balance) {
+        if (amount > balance) {
             System.out.println("account money not enough ");
-        } else if (amount <= balance && amount > 8000) {
+        } if (amount > 8000) {
             System.out.println("You cannot withdraw more than 8000 in one move");
-        } else {
+        } else if (amount <= balance) {
             balance -= amount;
             System.out.println("you withdraw " + amount + " successfully ");
             System.out.println("THANK YOU FOR USING IT ");
@@ -27,14 +25,20 @@ public class QNB extends Bank {
 
     @Override
     public double getWithdrawLimit() {
-        return 6000;
+        return 8000;
     }
 
     @Override
     public void deposit(double amount) {
-        balance += amount;
-        System.out.println("you deposit " + amount + " successfully ");    
-        System.out.println("THANK YOU FOR USING IT ");
+        if(amount <= 20000){
+            balance += amount;
+            System.out.println("you deposit " + amount + " successfully ");
+            System.out.println("THANK YOU FOR USING IT ");
+        }
+        else {
+            System.out.println("Invaild transaction");
+        }
+
     }
 
     @Override

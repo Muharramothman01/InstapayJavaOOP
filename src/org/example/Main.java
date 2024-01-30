@@ -45,7 +45,7 @@ public class Main {
 
 
         //start of the program
-        System.out.println("Welcome Enter your password : ");
+        System.out.print("Welcome Enter your password: ");
 
         while (user == null) {
             password = input.next();
@@ -58,13 +58,19 @@ public class Main {
 
             if (user == null) {
                 System.out.println("Invalid User\n");
-                System.out.println("Enter your password : ");
+                System.out.print("Enter your password: ");
             }
         }
 
         while (bank == null) {
             user.showBankAccounts();
+            System.out.println("===================================\n");
+            System.out.println("0 - Exit");
             option = input.nextInt();
+
+            if (option == 0) {
+                break;
+            }
 
             if (user.getBankAccount(option - 1) == null) {
                 System.out.println("Invalid Choice\n");
@@ -80,20 +86,20 @@ public class Main {
 
                     if (operation == 1) {
                         System.out.println("Your maximum withdraw is " + bank.getWithdrawLimit());
-                        System.out.println("Enter the amount : ");
+                        System.out.println("Enter the amount: ");
                         amount = input.nextDouble();
                         bank.withDraw(amount);
                     }
 
                     else if (operation == 2) {
                         System.out.println("Your maximum deposit is " + bank.getDepositLimit());
-                        System.out.println("Enter the amount : ");
+                        System.out.println("Enter the amount: ");
                         amount = input.nextDouble();
                         bank.deposit(amount);
                     }
 
                     else if (operation == 3) {
-                        System.out.println("Your balance is : " + bank.showBalance() + " EGP");
+                        System.out.println("Your balance is: " + bank.showBalance() + " EGP");
                     }
 
                     else if (operation == 4) {
@@ -103,17 +109,17 @@ public class Main {
                             option = input.nextInt();
                             switch (option) {
                                 case 1:
-                                    System.out.println("Enter the amount : ");
+                                    System.out.println("Enter the amount: ");
                                     amount = input.nextDouble();
                                     bank.exchangeMoney(amount, "Dollar");
                                     break;
                                 case 2:
-                                    System.out.println("Enter the amount : ");
+                                    System.out.println("Enter the amount: ");
                                     amount = input.nextDouble();
                                     bank.exchangeMoney(amount, "Euro");
                                     break;
                                 case 3:
-                                    System.out.println("Enter the amount : ");
+                                    System.out.println("Enter the amount: ");
                                     amount = input.nextDouble();
                                     bank.exchangeMoney(amount, "Sar");
                                     break;
