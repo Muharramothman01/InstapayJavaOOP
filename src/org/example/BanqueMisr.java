@@ -1,6 +1,7 @@
 package org.example;
 
 public class BanqueMisr extends Bank {
+    
     public BanqueMisr(double balance){
         super("BM", balance);
     }
@@ -11,8 +12,8 @@ public class BanqueMisr extends Bank {
 
     @Override
     public void withDraw(double amount) {
-        System.out.print("Enter the amount to withdraw: ");
-        if (amount <= 5000){
+        
+        if (amount > 5000){
             System.out.println("Invalid amount \n TRY AGAIN!!");
         } else {
             if (amount <= balance ) {
@@ -30,7 +31,6 @@ public class BanqueMisr extends Bank {
     }
     @Override
     public void deposit(double amount) {
-        System.out.println("Note: you should know that max deposit is 8000 LE and min is 200. \n Enter the amount to deposit: ");
         if (amount <= 8000) {
             balance += amount;
             System.out.println(" Amount Deposit: " + amount + "\n Balance after withdrawal: " + balance);
